@@ -62,13 +62,11 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
+      <img src="static/images/main.png" alt="main"/>
       <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+        <div class="columns is-centered" style="margin-top:20px">
+          <h1 class="is-size-4"> Story Generation Results</h1>
+        </div>   
       </h2>
     </div>
   </div>
@@ -101,12 +99,26 @@
         <div class="content has-text-justified">
           <img src="static/images/method.png" alt="rs_algorithm"/>
           <p style=" font-size:18px;">
-            Method Explanation
+            The decoded $i$-th image $\x^{i}_0$ often contains visual artifacts. 
+            The problem is less significant in the initial frame but exacerbates for later predicted frames. 
+            To correct the visual artifacts, our goal is to \textbf{(1)} bring $\x^{i}_0$ closer 
+            to the clean data manifold, yet \textbf{(2)} proximal to the starting point. 
+            This can be effectively implemented with a text-conditional SDEdit~\citep{meng2021sdedit}, 
+            where one can use any text-to-image (T2I) DM, such as stable diffusion~\citep{rombach2022high} 
+            that operates in the latent space, or DeepFloyd IF~\citep{deepfloyd_if} 
+            that operates in the pixel space.
           </p>
-          <img src="static/images/tweedie_progression.png" alt="tweedie_progression"/>
+          <img src="static/images/llm.png" alt="llm"/>
+          <p style=" font-size:18px;">
+            Looking at the second frame only, it is impossible to deduce that ``His'' in the local context 
+            is referring to ``Benny, the golden retriever''. While one could aim to design and train a 
+            separate memory module specified for this task, we take a simpler approach, where we take a 
+            large language model (LLM) to causally generate new prompts conditioned on the previous prompts 
+            keeping the key information. Concretely, with an LLM parametrized with $\varphi$
+          </p>
         </div>
       </div>
-    </div
+    </div>
   </div>
 </section>
 <!-- End Method -->
